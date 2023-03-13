@@ -1,40 +1,53 @@
-# Props Funneling
-### How Props are transfered through arguments of the component functions of React App
+# How to pass Props from Child to Parent?
 
-  - Props is nothing but abbreviation for Properties of class object created in components.
-  - Through ClassName="" , we pass properties of the components to the base application to render dynamic input/data into this prop.
+_*Object: To pass the prop from child to parent so that function which is executed in the parent component can get the argument from the child component*_
+
+## tltr: We can pass the data from the child to parent via prop of the child declared in the parent component and then that prop can be used to set the data from the parent using that function or object which require that object data.
+
+**Note: However we can't by-pass any intermediate component comes b/t these child and parent component. props must be pass through one-by-one**
+## Code for the parent component:
+### for Example: we want to pass the argument of a function onSave() which is declared in the parent, from the child component:
+```javascript
+    export default function MyAccount() {
+      function SaveAccountData(enteredAccountData) {
+        const accountData = {
+            ...enteredAccountData,
+            id: Math.random().toString(),
+        };
+        console.log(accountData);
+      }
+    
+      return (
+          <div className="account-details">
+            <AccountFrom onSave={SaveAccountData} />
+          </div>
+      );
+    }
+```
+  - Here: we want to get the enteredAccountData from the AccountFrom component which is direct child of the MyAccount component.
+  - So How can we get the account details from that component? We will use the props which points to the function argument which is already be placed by the AccountForm component "onSave={}".
+  - onSave={} , will point to the function, which required an argument which we can pass through this prop in the AccountFrom component.
+
+  ## So the AccountFrom Code goes like this:
   
-
-//  Humans, an object conatining data, like gender, name, emp-status, and age. If we want to pass its values to get something out of it,we create the component.
-
+```javascript
+    export default function AccountFrom (props) {
+        const accountDetails = {
+            AcHolder: name,
+            AcNumber: number,
+            AcDOB: new Date(),
+            AcAmount: amount,
+        };
+        
+        props.onSave(accountDetails);
+        
+        return (
+          <form></form>
+        )  
+    }
 
 ```
-export default function Humans() {
-  return (
-      // will take data as an object to its props.
-      <div>
-        <Employees persons = {Humans}/>
-      </div>
-  );
-} 
-```
+  - Here: Event we do not have the onSave() declared, we can use this function to pass the argument to it as it was actually a pointer of the parent component function passed from the prop to the child component.
+  - This pattern is most importent prop flow used t opass the data from the child to parent.
 
-  ## This function can now be used in Employees Component function
-
-
-  ```
-  export default function Employees(props) {
-     return (
-        // will pass the Humans values to its props
-        <div>
-            <h3>{props.persons[].Name}</h3>
-            <p>Gender:{props.persons[].gender}</p>
-            <Employee-type type={props.persons[].emp-status}/>
-            <p>age{props.persons[].age}</p>
-        </div>     
-     );
-  }
-  ```
-
-## Hence we can pass all the props down to the DOM component tree and extract out its features
   
