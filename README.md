@@ -50,4 +50,7 @@ _*Object: To pass the prop from child to parent so that function which is execut
   - Here: Event we do not have the onSave() declared, we can use this function to pass the argument to it as it was actually a pointer of the parent component function passed from the prop to the child component.
   - This pattern is most importent prop flow used t opass the data from the child to parent.
 
+## This creates a Controlled Component.
+    - Those components which are controlled by the parent components through two-way binding using props for the changed value and useState for the default value are called controlled component.
+    - Here we have seen AccountForm data is bieng used by the MyAccount component, if we also use State management here to set some default value for the form and then setDynamic value using the useState will make the MyAccount component controller component of the AccountFrom component.
   
