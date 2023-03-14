@@ -1,6 +1,8 @@
 # useState function and Management of Changing State
 ### How we can manage Change in the DOM via Events in React...
 
+  - Since React will not look fro the change after parsing the component for the first time. 
+  - React doesn't care whether you changed some variable values. It'll not re-evaluate the component function. It only does that for changes to registered state values (created via useState)
   - We use useState of react, it is a Hook which have the control of the data which is going to be change in the course of events.
   - useState comes with the React, it always gives an array of two values, viz., an inital variable for the inital value which is going to be stored in the useState parameter. second value is a fucntion to set the final or changes value after the event occur.
   
