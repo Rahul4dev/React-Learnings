@@ -32,6 +32,9 @@
     
   - Here: input will take values from the user and we have added eventhandler "onChange" in it to track the changes in the input. 
   - value prop in input field, makes it two way bind as it can now have both value i.e, the inital value and the changed value. Hence we can get the input and changed value in form submission. Two-way binding gives components in your application a way to share data. Use two-way binding to listen for events and update values simultaneously between parent and child components.
+  
+  _*Through this the child component will become the controlled component of the parent component. Parent will controll the child through default and dynamic values through two-waybinding and useState setProps*_
+  
   - Hence we add an event listner on form not on the button for submission.
    like <from onSbumit={submitHandler} >
 
