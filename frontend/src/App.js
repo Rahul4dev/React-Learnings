@@ -1,6 +1,9 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import EditEventPage from './pages/EditEvent';
+import AuthenticationPage, {
+  action as authAction,
+} from './pages/Authentication';
 import ErrorPage from './pages/Error';
 import EventDetailPage, {
   loader as eventDetailLoader,
@@ -21,6 +24,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 'auth', element: <AuthenticationPage />, action: authAction },
       {
         path: 'events',
         element: <EventsRootLayout />,
@@ -30,6 +34,7 @@ const router = createBrowserRouter([
             element: <EventsPage />,
             loader: eventsLoader,
           },
+
           {
             path: ':eventId',
             id: 'event-detail',
