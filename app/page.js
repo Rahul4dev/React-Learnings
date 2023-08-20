@@ -1,95 +1,76 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.css';
+import MeetupList from '@/components/meetups/MeetupList';
 
-export default function Home() {
+const DUMMY_MEETUP = [
+  {
+    id: 'm1',
+    title: 'A First Meetup',
+    image:
+      'https://images.unsplash.com/photo-1660834772989-c15d049c35d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    address: 'some address, 123SR Street, HangOut City',
+  },
+  {
+    id: 'm2',
+    title: 'A Second Meetup',
+    image:
+      'https://images.unsplash.com/photo-1684576069958-22c2adb77d65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    address: 'next address, 123SR Street, Same City',
+  },
+  {
+    id: 'm3',
+    title: 'A Last Meetup',
+    image:
+      'https://images.unsplash.com/photo-1582711012124-a56cf82307a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1240&q=80',
+    address: 'last address, 123SR Street, Another City',
+  },
+];
+
+// function Home(props) {
+//   const [loadedMeetups, setLoadedMeetups] = useState([]);
+
+//   useEffect(() => {
+//     // send request, get data and load the meetups
+//     setLoadedMeetups(DUMMY_MEETUP);
+//   }, []);
+//   return (
+//     <div className={styles.description}>
+//       <MeetupList meetups={loadedMeetups} />
+//     </div>
+//   );
+// }
+async function Page() {
+  const meetups = await getStaticProps();
+  // const meetups = await getServerSideProps();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <div className={styles.description}>
+      <MeetupList meetups={meetups.props.meetups} />
+    </div>
+  );
 }
+
+// export async function getServerSideProps(context) {
+//   // this props is used for fetching data for server side rendering and it hydrate the data on every request.
+
+//   // it also give access to context object which contains request and response properties which can be used for other features like authentication, validation, etc.
+//   // const request = context.req;
+//   // const response = context.res;
+//   // console.log(request, response);
+//   // fetch data from server/api
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUP,
+//     },
+//   };
+// }
+
+export async function getStaticProps() {
+  // fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUP,
+    },
+    revalidate: 10, // update on every 10 seconds.
+  };
+}
+
+export default Page;
