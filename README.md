@@ -7,7 +7,7 @@
   -  [HTPP_Request](https://github.com/Rahul4dev/React-Learnings/tree/HTTP_Requests) to send get and post request
   -  [Forms And Inputs](https://github.com/Rahul4dev/React-Learnings/tree/FormsAndInput) with custom Hooks and Validation logic
   -  [Food Delivery App](https://github.com/Rahul4dev/React-Learnings/tree/FoodDeliveryApp) using all the above learnings.
-  - [Forms and Input](https://github.com/Rahul4dev/React-Learnings/tree/FormsAndInput) of React and Components which are custom based and can be created to make it more responsive and reactive.
+  - [Forms and Input](https://github.com/Rahul4dev/React-Learnings/tree/FormsAndInput) of React and Components which are custom-based and can be created to make it more responsive and reactive.
   - [React Router](https://github.com/Rahul4dev/React-Learnings/tree/eventsProject_React_Router) using another package to enhance the functionalities and productivity of React. Using a router and its different hooks makes the React application multipage and content-oriented.
   - [Authentication](https://github.com/Rahul4dev/React-Learnings/tree/Authentication) is an enhancement in the router project where we are adding auth functionality and route protection technique so that we can render and show content conditionally based on the user's authentication status.
   
@@ -23,8 +23,11 @@
        - Static Site Generation(SSG) (generate the HTML on the build time, i.e, only one time, good, fast and efficient, but require rebuilding for updates)
        - We also have a fusion of SSR and SSG called Incremental Static Regeneration(ISR) ( it generates the HTML on almost every given revalidate value) for this Nextjs has a hook called useSWR ( stale while revalidate) i.e, it will stale(data from cache) till revalidate function gets updated data.
    - Nextjs have two routes for the Application building :
-       - [App Route](https://github.com/Rahul4dev/React-Learnings/tree/next-app-route) need index.js or page.js file for routing : newer version and faster build
+       - [App Route](https://github.com/Rahul4dev/React-Learnings/tree/next-app-route) need index.js or page.js file for routing: newer version and faster build
        - [Page Route](https://github.com/Rahul4dev/React-Learnings/tree/next-page-route-meetup)  need index.js for routing) : older version but still prevalent
 
   
-     
+  # [Typescript Learnings](https://github.com/Rahul4dev/React-Learnings/tree/projectTodo)
+    - By using Typescript we hard coded the type of variable and values we expect, which enhanced the application processing and removed different errors in the development phase as we already get the error message if we use the wrong code in any line. Using typescript enhances the code with productivity as with few lines of code, it negates all the error-prone area and files. To begin with, this repo includes the basic folder where I have used simple typescript syntax which replaces the react syntax and also shows 'How it enhances its effectiveness'.
+    - This repo also includes one simple to-do project where we use typescript and its annotations in the React syntax to enhance the code. Here we can see the same state management, props drilling and useRef hook to get the input value from the form. 
+  
