@@ -26,8 +26,7 @@
        - [App Route](https://github.com/Rahul4dev/React-Learnings/tree/next-app-route) need index.js or page.js file for routing: newer version and faster build
        - [Page Route](https://github.com/Rahul4dev/React-Learnings/tree/next-page-route-meetup)  need index.js for routing) : older version but still prevalent
 
-  
-  # [Typescript Learnings](https://github.com/Rahul4dev/React-Learnings/tree/projectTodo)
+# [Typescript Learnings](https://github.com/Rahul4dev/React-Learnings/tree/projectTodo)
   - By using Typescript we hard coded the type of variable and values we expect, which enhanced the application processing and removed different errors in the development phase as we already get the error message if we use the wrong code in any line. Using typescript enhances the code with productivity as with few lines of code, it negates all the error-prone area and files. To begin with, this repo includes the basic folder where I have used simple typescript syntax which replaces the react syntax and also shows 'How it enhances its effectiveness'.
   - This repo also includes one simple to-do project where we use typescript and its annotations in the React syntax to enhance the code. Here we can see the same state management, props drilling and useRef hook to get the input value from the form. 
   
